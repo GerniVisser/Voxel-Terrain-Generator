@@ -15,19 +15,19 @@ MonoBehaviour:
   biomeName: Planes
   soilidGroundHeight: 42
   terrainHeight: 42
-  terrainScale: 0.001
+  terrainScale: 0.01
   veins:
   - nodeName: Dirt
     blockID: 4
-    minHeight: 0
-    maxHeight: 60
-    scale: 0.025
-    threshold: 0.3
-    noiseOffset: 344
+    minHeight: 2
+    maxHeight: 42
+    scale: 0.2
+    threshold: 0.4
+    noiseOffset: 34
   - nodeName: Coal
     blockID: 10
     minHeight: 1
-    maxHeight: 70
+    maxHeight: 42
     scale: 0.5
     threshold: 0.3
     noiseOffset: 30
@@ -35,6 +35,6 @@ MonoBehaviour:
     blockID: 0
     minHeight: 10
     maxHeight: 70
-    scale: 0.13
-    threshold: 0.35
+    scale: 0.05
+    threshold: 0.4
     noiseOffset: 0
