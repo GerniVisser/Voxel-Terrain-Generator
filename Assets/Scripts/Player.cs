@@ -2,19 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour
+{
     private Transform cam;
     private World world;
 
     public bool IsGrounded;
     public bool isSprinting;
 
-    public float walkSpeed = 3f;
-    public float sprintSpeed = 6f;
+    public float walkSpeed = 0f;
+    public float sprintSpeed = 0f;
     public float jumpForce = 5f;
-    public float gravity = -12.8f;
+    public float gravity = -9.4f;
 
-    public float playerWidth = 0.15f; 
+    public float playerWidth = 0.15f;
 
 
     private float horizontal;
@@ -25,14 +26,16 @@ public class Player : MonoBehaviour {
     private float verticalMomentum = 0;
     private bool jumpRequest;
 
-    private void Start() {
-        
+    private void Start()
+    {
+
         cam = GameObject.Find("Main Camera").transform;
         world = GameObject.Find("World").GetComponent<World>();
 
     }
-    
-    private void FixedUpdate() {
+
+    private void FixedUpdate()
+    {
         calculateVelocity();
 
         if (jumpRequest)
@@ -41,17 +44,19 @@ public class Player : MonoBehaviour {
         transform.Rotate(Vector3.up * mouseHorizontal);
         cam.Rotate(Vector3.right * -mouseVertical);
         transform.Translate(velocity, Space.World);
-        
+
     }
-    private void Update() {
-        
+    private void Update()
+    {
+
         GetPlayerInput();
 
     }
 
-    private void calculateVelocity() {
+    private void calculateVelocity()
+    {
 
-          // Affect vertical momentum with gravity.
+        // Affect vertical momentum with gravity.
         if (verticalMomentum > gravity)
             verticalMomentum += Time.fixedDeltaTime * gravity;
 
@@ -76,13 +81,15 @@ public class Player : MonoBehaviour {
 
     }
 
-    void jump(){
+    void jump()
+    {
         verticalMomentum = jumpForce;
         IsGrounded = false;
         jumpRequest = false;
     }
 
-    private void GetPlayerInput(){
+    private void GetPlayerInput()
+    {
 
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
@@ -91,43 +98,51 @@ public class Player : MonoBehaviour {
 
         if (IsGrounded && Input.GetButtonDown("Jump"))
             jumpRequest = true;
-        
+
     }
 
-    private float checkDownVel(float downSpeed){
+    private float checkDownVel(float downSpeed)
+    {
 
         if (world.CheckVoxelIsSoilid(new Vector3(transform.position.x + playerWidth, transform.position.y + downSpeed, transform.position.z + playerWidth)) ||
             world.CheckVoxelIsSoilid(new Vector3(transform.position.x - playerWidth, transform.position.y + downSpeed, transform.position.z + playerWidth)) ||
             world.CheckVoxelIsSoilid(new Vector3(transform.position.x - playerWidth, transform.position.y + downSpeed, transform.position.z - playerWidth)) ||
-            world.CheckVoxelIsSoilid(new Vector3(transform.position.x + playerWidth, transform.position.y + downSpeed, transform.position.z - playerWidth)) 
-        ) {
+            world.CheckVoxelIsSoilid(new Vector3(transform.position.x + playerWidth, transform.position.y + downSpeed, transform.position.z - playerWidth))
+        )
+        {
             IsGrounded = true;
             return 0;
         }
-        else{
+        else
+        {
             IsGrounded = false;
             return downSpeed;
         }
     }
 
-     private float checkUpVel(float upSpeed){
+    private float checkUpVel(float upSpeed)
+    {
 
         if (world.CheckVoxelIsSoilid(new Vector3(transform.position.x + playerWidth, transform.position.y + upSpeed + 2f, transform.position.z + playerWidth)) ||
             world.CheckVoxelIsSoilid(new Vector3(transform.position.x - playerWidth, transform.position.y + upSpeed + 2f, transform.position.z + playerWidth)) ||
             world.CheckVoxelIsSoilid(new Vector3(transform.position.x - playerWidth, transform.position.y + upSpeed + 2f, transform.position.z - playerWidth)) ||
-            world.CheckVoxelIsSoilid(new Vector3(transform.position.x + playerWidth, transform.position.y + upSpeed + 2f, transform.position.z - playerWidth)) 
-        ) {
+            world.CheckVoxelIsSoilid(new Vector3(transform.position.x + playerWidth, transform.position.y + upSpeed + 2f, transform.position.z - playerWidth))
+        )
+        {
             return 0;
         }
-        else{
+        else
+        {
             return upSpeed;
         }
     }
 
-    public bool front {
-        get{
+    public bool front
+    {
+        get
+        {
             if (
-               world.CheckVoxelIsSoilid(new Vector3(transform.position.x, transform.position.y, transform.position.z + playerWidth)) || 
+               world.CheckVoxelIsSoilid(new Vector3(transform.position.x, transform.position.y, transform.position.z + playerWidth)) ||
                world.CheckVoxelIsSoilid(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z + playerWidth))
             )
                 return true;
@@ -136,10 +151,12 @@ public class Player : MonoBehaviour {
         }
     }
 
-    public bool back {
-        get{
+    public bool back
+    {
+        get
+        {
             if (
-               world.CheckVoxelIsSoilid(new Vector3(transform.position.x, transform.position.y, transform.position.z - playerWidth)) || 
+               world.CheckVoxelIsSoilid(new Vector3(transform.position.x, transform.position.y, transform.position.z - playerWidth)) ||
                world.CheckVoxelIsSoilid(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z - playerWidth))
             )
                 return true;
@@ -148,10 +165,12 @@ public class Player : MonoBehaviour {
         }
     }
 
-    public bool right {
-        get{
+    public bool right
+    {
+        get
+        {
             if (
-               world.CheckVoxelIsSoilid(new Vector3(transform.position.x + playerWidth, transform.position.y, transform.position.z)) || 
+               world.CheckVoxelIsSoilid(new Vector3(transform.position.x + playerWidth, transform.position.y, transform.position.z)) ||
                world.CheckVoxelIsSoilid(new Vector3(transform.position.x + playerWidth, transform.position.y + 1f, transform.position.z))
             )
                 return true;
@@ -160,10 +179,12 @@ public class Player : MonoBehaviour {
         }
     }
 
-    public bool left {
-        get{
+    public bool left
+    {
+        get
+        {
             if (
-               world.CheckVoxelIsSoilid(new Vector3(transform.position.x - playerWidth, transform.position.y, transform.position.z)) || 
+               world.CheckVoxelIsSoilid(new Vector3(transform.position.x - playerWidth, transform.position.y, transform.position.z)) ||
                world.CheckVoxelIsSoilid(new Vector3(transform.position.x - playerWidth, transform.position.y + 1f, transform.position.z))
             )
                 return true;
@@ -173,5 +194,5 @@ public class Player : MonoBehaviour {
     }
 
 
-    
+
 }
