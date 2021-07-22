@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 9cd7f2a237fd6004b97920b714d8da4e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - material: {instanceID: 0}
+  - biomes: {fileID: 11400000, guid: ff73218d7d6e92e4e8e97c7fabd6ce2e, type: 2}
+  - player: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
