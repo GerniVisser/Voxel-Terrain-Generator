@@ -27,9 +27,12 @@ A procedural voxel world generator in Unity 3D game engine. A fun simulation to
 The biome editor tool can be used to configure terrain generation rules.
 
 - In the content browser navigate to Assets/Data/Biomes then open the BiomeAttributes tool
-    ![alt text](https://raw.githubusercontent.com/GerniVisser/Voxel-terrain-generator-Unity/main/Assets/Images/Tool.PNG)
-- Layers are used to assign different blocks to different y-value ranges
+- - Layers are used to assign different blocks to different y-value ranges
 - Veins are used to add 3D noise like adding Caves, Ore veins, islands.
+
+
+    ![alt text](https://raw.githubusercontent.com/GerniVisser/Voxel-terrain-generator-Unity/main/Assets/Images/Tool.PNG)
+
 ## Lessons Learned
 
 Firstly, I learned about Perlin and Simplex noise and overlapping these functions to generate the smooth randomness I needed to mold the terrain. The real challenge came when trying to render the thousands of voxel cubes that would populate the world. My first attempt of rendering all of them individually nearly crashed my computer!
