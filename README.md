@@ -11,6 +11,7 @@ A procedural voxel world generator in Unity 3D game engine. A fun simulation to
 ## Demo
 
 ![Alt Text](https://media.giphy.com/media/6Au4R9VBgl4zKDp3aH/giphy.gif)
+![Alt Text](https://media.giphy.com/media/ykJYGPyseXr4qQZvd5/giphy.gif)
 
   
 ## Installation
