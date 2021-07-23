@@ -30,8 +30,7 @@ The biome editor tool can be used to configure terrain generation rules.
 - Layers are used to assign different blocks to different y-value ranges
 - Veins are used to add 3D noise like adding Caves, Ore veins, islands.
 
-
-    ![alt text](https://raw.githubusercontent.com/GerniVisser/Voxel-terrain-generator-Unity/main/Assets/Images/Tool.PNG)
+![alt text](https://raw.githubusercontent.com/GerniVisser/Voxel-terrain-generator-Unity/main/Assets/Images/Tool.PNG)
 
 ## Lessons Learned
 
