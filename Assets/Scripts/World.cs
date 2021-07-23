@@ -138,16 +138,23 @@ public class World : MonoBehaviour
 
         int terrainHeight = biomes.soilidGroundHeight + (Mathf.FloorToInt(Noise.Get2DPerlin(new Vector2(pos.x, pos.z), 0, biomes.terrainScale) * biomes.terrainHeight));
 
+        foreach (Layer layer in biomes.layers)
+        {
+            if (pos.y < terrainHeight)
+            {
+                if (pos.y >= layer.minHeight && pos.y < layer.maxHeight)
+                {
+                    returnVal = layer.blockID;
+                }
+            }
+
+            else returnVal = 0;
+        }
+
         if (pos.y == terrainHeight)
-            returnVal = 3;
-
-        else if (pos.y < terrainHeight && pos.y > terrainHeight - 3)
-            returnVal = 4;
-
-        else if (pos.y < terrainHeight)
-            returnVal = 1;
-
-        else returnVal = 0;
+        {
+            returnVal = biomes.topLayerBlockID;
+        }
 
         //SECOND PASS
 

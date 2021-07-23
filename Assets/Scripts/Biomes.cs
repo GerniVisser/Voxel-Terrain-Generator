@@ -7,11 +7,12 @@ public class Biomes : ScriptableObject
 {
 
     public string biomeName;
-
     public int soilidGroundHeight;
+    public byte fillerBlockID;
     public int terrainHeight;
     public float terrainScale;
-
+    public byte topLayerBlockID;
+    public Layer[] layers;
     public Vein[] veins;
 
 }
@@ -27,5 +28,16 @@ public class Vein
     public float scale;
     public float threshold;
     public float noiseOffset;
+
+}
+
+[System.Serializable]
+
+public class Layer
+{
+    public string name;
+    public byte blockID;
+    public int minHeight;
+    public int maxHeight;
 
 }
