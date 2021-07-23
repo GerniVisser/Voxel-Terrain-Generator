@@ -27,7 +27,7 @@ A procedural voxel world generator in Unity 3D game engine. A fun simulation to
 The biome editor tool can be used to configure terrain generation rules.
 
 - In the content browser navigate to Assets/Data/Biomes then open the BiomeAttributes tool
-- - Layers are used to assign different blocks to different y-value ranges
+- Layers are used to assign different blocks to different y-value ranges
 - Veins are used to add 3D noise like adding Caves, Ore veins, islands.
 
 
